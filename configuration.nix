@@ -26,7 +26,7 @@
    efi.canTouchEfiVariables = true;
  };
 
-  # Use latest kernel.
+  # Use latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "harmonics"; # Define your hostname.
