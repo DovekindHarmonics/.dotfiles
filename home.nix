@@ -32,6 +32,8 @@
     # pkgs.fortune
     pkgs.ncmpcpp
     pkgs.rmpc
+
+    pkgs.qutebrowser
   ];
   
   home.sessionVariables = {
@@ -50,7 +52,29 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+   
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5.addons = with pkgs; [
+    qt6Packages.fcitx5-chinese-addons
+    ];
+    fcitx5.settings.inputMethod = {
+      GroupOrder."0" = "Default";
+      "Groups/0" = {
+         Name = "Default";
+         "Default Layout" = "us";
+         DefaultIM = "keyboard-us";
+	 "Secondary Layout" = "us";
 
+      };
+      "Groups/0/Items/0".Name = "keyboard-us";
+      "Groups/0/Items/1".Name = "pinyin";
+
+      GroupOrder."1" = "Secondary";
+    };
+  };
+     
   programs.vesktop = {
     enable = true;
     
@@ -155,6 +179,11 @@
       };
       "Tab-Session-Manager@sienori" = {
         install_url       = moz "tab-session-manager";
+	installation_mode = "force_installed";
+	updates_disabled  = true;
+      };
+      "myallychou@gmail.com" = {
+        install_url       = moz "youtube-recommended-videos";
 	installation_mode = "force_installed";
 	updates_disabled  = true;
       };

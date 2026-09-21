@@ -15,7 +15,7 @@
   };  
 
 
-
+  
 
   boot.loader = {
    grub = {
@@ -62,25 +62,11 @@
      pulse.enable = true;
    };
 
-#  services.mpd = {
-#    enable = true;
-#    user = "dovekind";
-#    settings = {
-#      music_directory = "/home/dovekind/roots/music";
-#      # must specify one or more audio_output blocks in order to play audio!
-#      # (e.g. ALSA, PulseAudio, PipeWire), see next sections
-#
-#    };
-#  };
-
- # services.mpd.settings = {
- #   audio_output = [
- #     {
- #       type = "pipewire";
- #       name = "My PipeWire Output";
- #     }
- #   ];
- # };
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    # Add any missing dynamic libraries for unpackaged programs
+    # here, NOT in environment.systemPackages
+  ];
 
 
 
@@ -93,6 +79,8 @@
      ];
    };
 
+   nixpkgs.config.allowUnfree = true;
+
    environment.systemPackages = with pkgs; [
      neovim 
      wget
@@ -102,9 +90,15 @@
      fuzzel
      fastfetch
      ncmpcpp
+     unzip
+     prismlauncher
+     thunar
+     waybar
+     steam-run
+     wayland
    ];
 
-   
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
