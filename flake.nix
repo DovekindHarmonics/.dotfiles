@@ -9,9 +9,11 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+  nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { self, nixpkgs, nix-flatpak, ... }@inputs:
   let
     system = "x86_64-linux";
 
@@ -32,6 +34,8 @@
         specialArgs = { inherit inputs system; };
 
         modules = [
+        nix-flatpak.nixosModules.nix-flatpak
+
         ./configuration.nix  
         ];
       };

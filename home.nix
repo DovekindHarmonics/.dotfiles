@@ -21,6 +21,9 @@
 
     #zsh
     ./home-manager/zsh.nix
+    
+    #feh
+    ./home-manager/feh.nix
   ];
 
   
@@ -47,8 +50,6 @@
     # pkgs.fortune
     pkgs.ncmpcpp
     pkgs.rmpc
-
-    pkgs.qutebrowser
 
   ];
   

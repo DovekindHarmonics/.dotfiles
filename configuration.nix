@@ -41,6 +41,7 @@
 
   environment.variables = {
     DEVICE = "wayland";
+    XDG_DATA_DIRS = "$HOME/.local/share:/usr/local/share:/usr/share:var/lib";
   };
 
   users.users.dovekind = {
@@ -49,6 +50,9 @@
   };
 
    nixpkgs.config.allowUnfree = true;
+   
+
+   #
 
    environment.systemPackages = with pkgs; [
      neovim 
@@ -65,10 +69,29 @@
      steam-run
      obsidian
      syncthing
-
+     flatpak
      _7zip-zstd
    ];
+
+   xdg.portal = {
+     enable = true;
+     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+   };
   
+   services.flatpak = {
+     enable = true;
+     packages = [
+       "org.vinegarhq.Sober"
+     ];
+     overrides = {
+       "org.vinegarhq.Sober".Context = {
+         filesystems = [
+           "xdg-run/app/com.discordapp.Discord:create"
+	   "xdg-run/discord-ipc-0"
+	 ];
+       };
+     };
+   };
 
   system.stateVersion = "26.05"; 
 
