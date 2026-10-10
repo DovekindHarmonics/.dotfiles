@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 {
   imports = [
+    #inputs.nix-colors.homeManagerModules.default
+
+
     #mpd
     ./home-manager/mpd.nix
     
@@ -57,6 +60,16 @@
     # pkgs.fortune
     pkgs.ncmpcpp
     pkgs.rmpc
+ 
+    pkgs.wayshot
+
+    pkgs.hyprpicker
+    pkgs.wl-clipboard
+
+    pkgs.kdePackages.okular
+
+    pkgs.anki
+    pkgs.python313Packages.adblock
 
     #pkgs.qutebrowser
     #pkgs.steam

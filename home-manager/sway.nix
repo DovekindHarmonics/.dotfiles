@@ -1,5 +1,7 @@
 { inputs, config, lib, pkgs, ... }:
 {
+
+
   wayland.windowManager.sway = {
      enable = true;
      wrapperFeatures.gtk = true;
@@ -15,11 +17,11 @@
        colors = {
          focused = 
            {
-  	     background  = "#ffffff";
-	     border      = "#ffffff";
-             childBorder = "#ffffff";
-	     indicator   = "#ffffff";
-	     text        = "#ffffff";
+  #	     background  = "#ffffff";
+#	     border      = "#ffffff";
+ #            childBorder = "#ffffff";
+#	     indicator   = "#ffffff";
+#	     text        = "#ffffff";
 	   };
       
       };
@@ -44,6 +46,10 @@
          "Mod4+Q" = "exec fuzzel";
          "Mod4+W" = "exec QTWEBENGINE_FORCE_USE_GBM=0 qutebrowser";
 	 "Mod4+E" = "exec foot";
+
+	 "Mod4+F" = "exec hyprpicker -a";
+
+	 "Mod4+Ctrl+F" = "exec wayshot --clipboard -g";
 
 
          "Mod4+C" = "kill";

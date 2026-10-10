@@ -5,7 +5,7 @@
 
     settings = {
       main = {
-        font = "Ubuntu Mono:size=15";
+#        font = "Ubuntu Mono:size=15";
       };
     };
   };
