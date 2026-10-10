@@ -24,6 +24,12 @@
     
     #feh
     ./home-manager/feh.nix
+
+    #qutebrowser
+    ./home-manager/qutebrowser.nix
+
+    #waybar
+    ./home-manager/waybar.nix
   ];
 
   
@@ -42,6 +48,7 @@
 
 
 
+  nixpkgs.config.allowUnfree = true; 
 
 
   # Packages that should be installed to the user profile.
@@ -50,6 +57,9 @@
     # pkgs.fortune
     pkgs.ncmpcpp
     pkgs.rmpc
+
+    #pkgs.qutebrowser
+    #pkgs.steam
 
   ];
   

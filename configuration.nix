@@ -32,7 +32,6 @@
     "nix-command"
     "flakes"
   ];
-
   hardware.graphics.enable = true; # required for swaywm
   security.polkit.enable = true;
 
@@ -42,6 +41,7 @@
   environment.variables = {
     DEVICE = "wayland";
     XDG_DATA_DIRS = "$HOME/.local/share:/usr/local/share:/usr/share:var/lib";
+    EDITOR = "nvim";
   };
 
   users.users.dovekind = {
@@ -65,8 +65,6 @@
      unzip
      prismlauncher
      thunar
-     waybar
-     steam-run
      obsidian
      syncthing
      flatpak
@@ -81,7 +79,9 @@
    services.flatpak = {
      enable = true;
      packages = [
+       "com.valvesoftware.Steam"
        "org.vinegarhq.Sober"
+
      ];
      overrides = {
        "org.vinegarhq.Sober".Context = {

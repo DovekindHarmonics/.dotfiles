@@ -31,6 +31,13 @@
        gaps.right      = 5;
        gaps.top        = 5;
 
+       gaps.inner      = 5;
+       gaps.outer     = 10;
+
+       window = {
+         titlebar = false;
+       };
+
 
        keybindings = {
          # applications
