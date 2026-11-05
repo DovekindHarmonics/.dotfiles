@@ -74,7 +74,9 @@
 	 "Mod4+Ctrl+7" = "move container to workspace number 7";
 	 "Mod4+Ctrl+8" = "move container to workspace number 8";
 	 "Mod4+Ctrl+9" = "move container to workspace number 9";
-	 "Mod4+Ctrl+0" =  "move container to workspace number 10";
+	 "Mod4+Ctrl+0" = "move container to workspace number 10";
+
+	 "Mod4+n"      = ''exec wtype "ň"'';
 
          "Mod4+h" = "focus left";
          "Mod4+j" = "focus down";

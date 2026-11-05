@@ -33,6 +33,9 @@
 
     #waybar
     ./home-manager/waybar.nix
+
+    #wlr-which-key
+    ./home-manager/wlrwhichkey.nix
   ];
 
   
@@ -71,10 +74,20 @@
     pkgs.anki
     pkgs.python313Packages.adblock
 
+    pkgs.krita
+
+    pkgs.wtype
+    pkgs.vlc
+
+    pkgs.htop
+
+    pkgs.niri
+
     #pkgs.qutebrowser
     #pkgs.steam
-
+  
   ];
+
   
   home.sessionVariables = {
 
