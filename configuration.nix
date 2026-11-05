@@ -29,12 +29,13 @@
       dovekind = import ./home.nix;
     };
   };  
-  
+
 
   stylix = {
     targets.regreet.enable = false;
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/grayscale-dark.yaml";
+
   };
 
   nix.settings.experimental-features = [
@@ -42,6 +43,10 @@
     "flakes"
   ];
   hardware.graphics.enable = true; # required for swaywm
+  hardware.graphics.enable32Bit = true;
+  hardware.amdgpu.legacySupport.enable = true;
+
+
   security.polkit.enable = true;
 
   # Set your time zone.
@@ -60,7 +65,8 @@
 
    nixpkgs.config.allowUnfree = true;
 
-   #
+   virtualisation.docker.enable = true;
+
 
    environment.systemPackages = with pkgs; [
      neovim 
@@ -71,15 +77,17 @@
      fastfetch
      ncmpcpp
      unzip
-     prismlauncher
      thunar
      obsidian
      syncthing
      flatpak
      _7zip-zstd
      firefox
-
+     docker-compose
+     firewalld
+     prismlauncher
    ];
+
 
    programs.appimage.enable = true;
    programs.appimage.binfmt = true;
@@ -90,6 +98,8 @@
        pkgs.icu
        pkgs.libxcrypt-legacy
        pkgs.sqlite
+       pkgs.zstd
+
      ]; 
    };
 
@@ -115,6 +125,7 @@
        };
      };
    };
+
 
   # Septabee's options and their defaults
 programs.septabee = {

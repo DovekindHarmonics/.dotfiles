@@ -52,7 +52,7 @@
     };
   };
 
-
+  stylix.targets.gtk.flatpakSupport.enable = false;
 
   nixpkgs.config.allowUnfree = true; 
 
@@ -75,6 +75,7 @@
     pkgs.python313Packages.adblock
 
     pkgs.krita
+     
 
     pkgs.wtype
     pkgs.vlc
@@ -83,12 +84,16 @@
 
     pkgs.niri
 
+
+
     #pkgs.qutebrowser
     #pkgs.steam
   
   ];
 
-  
+
+
+
   home.sessionVariables = {
 
   };
